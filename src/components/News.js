@@ -53,7 +53,7 @@ export class News extends Component {
   }
 
   async componentDidMount(){
-    let url = `https://newsapi.org/v2/everything?sources=techcrunch&apiKey=371db98e9a53482f99e43ce2c6eb0228&pageSize=50&page=${this.state.page}`;
+    let url = `https://newsapi.org/v2/everything?sources=techcrunch&apiKey=371db98e9a53482f99e43ce2c6eb0228&pageSize=20&page=${this.state.page}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
@@ -64,7 +64,7 @@ export class News extends Component {
   }
 
   handlePrevious = async ()=>{
-    let url = `https://newsapi.org/v2/everything?sources=techcrunch&apiKey=371db98e9a53482f99e43ce2c6eb0228&pageSize=50&page=${this.state.page - 1}`;
+    let url = `https://newsapi.org/v2/everything?sources=techcrunch&apiKey=371db98e9a53482f99e43ce2c6eb0228&pageSize=20&page=${this.state.page - 1}`;
     let data = await fetch(url);
     let parsedData = await data.json();
     console.log(parsedData);
@@ -75,11 +75,11 @@ export class News extends Component {
   }
 
   handleNext = async ()=>{
-    if (this.state.page + 1 > Math.ceil(this.state.totalResults / 50)) {
+    if (this.state.page + 1 > Math.ceil(this.state.totalResults / 20)) {
       
     }
     else{
-      let url = `https://newsapi.org/v2/everything?sources=techcrunch&apiKey=371db98e9a53482f99e43ce2c6eb0228&pageSize=50&page=${this.state.page + 1}`;
+      let url = `https://newsapi.org/v2/everything?sources=techcrunch&apiKey=371db98e9a53482f99e43ce2c6eb0228&pageSize=20&page=${this.state.page + 1}`;
       let data = await fetch(url);
       let parsedData = await data.json();
       console.log(parsedData);
